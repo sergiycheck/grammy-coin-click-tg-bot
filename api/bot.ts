@@ -1,12 +1,18 @@
 import dotenv from "dotenv";
 import path from "path";
+import process from "process";
 
-const envPath = path.join(__dirname, "..", ".env");
+export const config = {
+  runtime: "nodejs",
+};
+
+const envPath = path.join(process.cwd(), ".env");
 dotenv.config({ path: envPath });
 
-import { Bot, GrammyError, HttpError, InlineKeyboard } from "grammy";
+import { Bot, GrammyError, HttpError, InlineKeyboard, webhookCallback } from "grammy";
 
 const token = process.env.BOT_TOKEN;
+if (!token) throw new Error("BOT_TOKEN is unset");
 
 const bot = new Bot(token);
 
@@ -53,3 +59,5 @@ bot
       console.error("Unknown error:", e);
     }
   });
+
+export default webhookCallback(bot, "http");
