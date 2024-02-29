@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "dev": "tsx watch ./src/bot.ts",
+    "build": "rm -r dist && tsc",
+    "start": "node ./dist/bot.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "grammy": "^1.20.3",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.23",
+    "tsx": "^4.7.0"
+  }
+}
