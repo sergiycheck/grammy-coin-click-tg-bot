@@ -2,10 +2,6 @@ import dotenv from "dotenv";
 import path from "path";
 import process from "process";
 
-export const config = {
-  runtime: "nodejs",
-};
-
 const envPath = path.join(process.cwd(), ".env");
 dotenv.config({ path: envPath });
 
